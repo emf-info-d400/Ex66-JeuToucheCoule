@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- #region NE PAS TOUCHER À CE FICHIER XML QUI EST FOURNI ET FONCTIONNEL ! -->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!-- #endregion -->
+
+<BorderPane prefWidth="700.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="views.View">
+   <top>
+
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+              <HBox BorderPane.alignment="CENTER">
+                  <children>
+                      <ToolBar HBox.hgrow="ALWAYS">
+                          <items>
+                              <HBox spacing="10.0">
+                                  <children>
+                                      <Button fx:id="btnRestartAuto" mnemonicParsing="false" onAction="#onBtnRestartAuto" text="Aléatoire">
+                                          <graphic>
+                                              <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                                  <image>
+                                                      <Image url="@img/icon-magical2.png" />
+                                                  </image>
+                                              </ImageView>
+                                          </graphic>
+                                      </Button>
+                              <Button fx:id="btnRestart" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onBtnRestart" text="Manuelle">
+                                 <graphic>
+                                    <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/place_ships_128.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                                      <Button fx:id="btnStart" disable="true" mnemonicParsing="false" onAction="#onBtnStart" text="Démarrer">
+                                          <graphic>
+                                              <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                                  <image>
+                                                      <Image url="@img/fight_128.png" />
+                                                  </image>
+                                              </ImageView>
+                                          </graphic>
+                                      </Button>
+                                      <Separator maxWidth="8.0" minWidth="8.0" orientation="VERTICAL" prefWidth="8.0" HBox.hgrow="NEVER" />
+                                      <Button fx:id="btnAbout" mnemonicParsing="false" onAction="#onBtnAbout" text="A propos">
+                                          <graphic>
+                                              <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                                  <image>
+                                                      <Image url="@img/info-128.png" />
+                                                  </image>
+                                              </ImageView>
+                                          </graphic>
+                                      </Button>
+                                  </children>
+                              </HBox>
+                          </items>
+                          <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </padding>
+                      </ToolBar>
+                      <ToolBar HBox.hgrow="NEVER">
+                          <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </padding>
+                          <HBox.margin>
+                              <Insets />
+                          </HBox.margin>
+                          <items>
+                              <HBox spacing="10.0">
+                                  <children>
+                                      <Button fx:id="btnQuit" mnemonicParsing="false" onAction="#onBtnQuit" text="Quitter">
+                                          <graphic>
+                                              <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                                  <image>
+                                                      <Image url="@img/exit-128.png" />
+                                                  </image>
+                                              </ImageView>
+                                          </graphic>
+                                      </Button>
+                                  </children>
+                              </HBox>
+                          </items>
+                      </ToolBar>
+                  </children>
+              </HBox>
+         </center>
+         <top>
+            <BorderPane style="-fx-background-color: #000;" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+
+   </top>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <GridPane hgap="10.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" percentWidth="50.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" percentWidth="50.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints fillHeight="false" valignment="BOTTOM" vgrow="NEVER" />
+                <RowConstraints maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" valignment="CENTER" vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <Label text="Mes bateaux" textFill="MAROON" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Ses bateaux" textFill="MAROON" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <StackPane styleClass="custom_3d_inset_border" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" />
+                            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints valignment="TOP" vgrow="NEVER" />
+                            <RowConstraints valignment="TOP" vgrow="NEVER" />
+                            <RowConstraints valignment="TOP" vgrow="NEVER" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="labelPlayerShots" text="0" GridPane.columnIndex="1">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Tirs :">
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Touchés :" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelPlayerTouched" text="2 / 32" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelPlayerSink" text="0 / 7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Arial Bold" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Coulés :" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets right="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </StackPane>
+                  <GridPane styleClass="custom_3d_inset_border" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" />
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints valignment="TOP" vgrow="NEVER" />
+                        <RowConstraints valignment="TOP" vgrow="NEVER" />
+                        <RowConstraints valignment="TOP" vgrow="NEVER" />
+                     </rowConstraints>
+                     <children>
+                        <Label fx:id="labelComputerShots" text="0" GridPane.columnIndex="1">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Tirs :">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Touchés :" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="labelComputerTouched" text="2 / 32" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="labelComputerSink" text="0 / 7" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Coulés :" GridPane.rowIndex="2">
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </GridPane.margin>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <BorderPane fx:id="borderPaneZonePlayer" styleClass="custom_3d_inset_border" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                  <BorderPane fx:id="borderPaneZoneComputer" styleClass="custom_3d_inset_border" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+         </center>
+         <right>
+            <BorderPane style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </BorderPane>
+         </right>
+      </BorderPane>
+   </center>
+   <left>
+
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <VBox style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <BorderPane VBox.vgrow="ALWAYS">
+                     <top>
+                        <BorderPane BorderPane.alignment="CENTER">
+                           <top>
+                                      <ImageView fitWidth="128.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                          <image>
+                                              <Image url="@img/AppLogo.png" />
+                                          </image>
+                                      </ImageView>
+                           </top>
+                           <center>
+                              <Label alignment="CENTER" text="Touché-Coulé v1.0" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Label>
+                           </center>
+                        </BorderPane>
+                     </top>
+                     <bottom>
+                                <ImageView fitHeight="128.0" fitWidth="128.0" BorderPane.alignment="CENTER">
+                                    <image>
+                                        <Image url="@img/swiss-made-1024.png" />
+                                    </image>
+                                </ImageView>
+                     </bottom>
+                        </BorderPane>
+                    </children>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </VBox>
+            <Separator orientation="VERTICAL" />
+            </children>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </HBox>
+   </left>
+   <right>
+      <HBox fx:id="hBoxPlacementBateaux" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Separator orientation="VERTICAL" />
+            <BorderPane>
+               <center>
+                  <VBox alignment="CENTER" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+                     <children>
+                        <MenuButton fx:id="btnMenuPlaceShips" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Placer bateaux">
+                          <items>
+                            <MenuItem fx:id="menuItemPorteAvions" mnemonicParsing="false" onAction="#onMenuItemPorteAvions" text="Porte-avions">
+                                 <graphic>
+                                    <ImageView fitHeight="64.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/bateau-porte-avions.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                            <MenuItem fx:id="menuItemCroiseur" mnemonicParsing="false" onAction="#onMenuItemCroiseur" text="Croiseur">
+                                 <graphic>
+                                    <ImageView fitHeight="64.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/bateau-croiseur.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemTorpilleur" mnemonicParsing="false" onAction="#onMenuItemTorpilleur" text="Torpilleur">
+                                 <graphic>
+                                    <ImageView fitHeight="64.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/bateau-torpilleur.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemCuirasse" mnemonicParsing="false" onAction="#onMenuItemCuirasse" text="Cuirassé">
+                                 <graphic>
+                                    <ImageView fitHeight="64.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/bateau-cuirasse.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemSousMarin" mnemonicParsing="false" onAction="#onMenuItemSousMarin" text="Sous-marin">
+                                 <graphic>
+                                    <ImageView fitHeight="64.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/bateau-sous-marin.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                          </items>
+                           <VBox.margin>
+                              <Insets bottom="30.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/ship_line_128.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuButton>
+                        <BorderPane VBox.vgrow="NEVER">
+                           <top>
+                              <Button fx:id="btnUp" mnemonicParsing="false" onAction="#onBtnUp" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/icon-arrow-up.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <tooltip>
+                                    <Tooltip text="C'est le blabla" />
+                                 </tooltip>
+                              </Button>
+                           </top>
+                           <bottom>
+                              <Button fx:id="btnDown" mnemonicParsing="false" onAction="#onBtnDown" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/icon-down-arrow.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </bottom>
+                           <left>
+                              <Button fx:id="btnLeft" mnemonicParsing="false" onAction="#onBtnLeft" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/icon-left-arrow.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </left>
+                           <right>
+                              <Button fx:id="btnRight" mnemonicParsing="false" onAction="#onBtnRight" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/icon-right-arrow.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </right>
+                           <center>
+                              <Button fx:id="btnRotate" mnemonicParsing="false" onAction="#onBtnRotate" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/rotate_right_128-2.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </center>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </BorderPane>
+                        <Button fx:id="btnValidatePosition" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBtnValidatePosition" text="Valider position">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/icon-check-mark.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </VBox>
+               </center>
+               <bottom>
+                          <ImageView fitHeight="64.0" fitWidth="128.0" BorderPane.alignment="CENTER">
+                              <image>
+                                  <Image url="@img/logo-section-256.png" />
+                              </image>
+                          </ImageView>
+               </bottom>
+            </BorderPane>
+         </children>
+      </HBox>
+   </right>
+</BorderPane>
